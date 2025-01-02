@@ -34,7 +34,7 @@ The model uses a custom architecture with the following key components:
 2. ✅ Used Depthwise Separable Convolution in Block 1
 3. ✅ Used Dilated Convolution in Block 2
 4. ✅ Used GAP layer
-5. ✅ Parameters < 200k
+5. ✅ Parameters < 200k (Achieved: 197,922)
 
 ## Training Features
 
