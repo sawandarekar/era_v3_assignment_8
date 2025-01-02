@@ -20,7 +20,7 @@ class CIFAR10_Model(nn.Module):
     def __init__(self):
         super(CIFAR10_Model, self).__init__()
 
-        drop_out_value = 0.1
+        drop_out_value = 0.02
 
         # Input Block
         self.convblock1 = nn.Sequential(
@@ -32,14 +32,14 @@ class CIFAR10_Model(nn.Module):
 
         # CONVOLUTION BLOCK 1
         self.convblock2 = nn.Sequential(
-            DepthwiseSeparableConv(24, 48, kernel_size=3, stride=1),
+            DepthwiseSeparableConv(24, 48, kernel_size=3, stride=2),
             nn.BatchNorm2d(48),
             nn.ReLU(),
             nn.Dropout(drop_out_value)
         ) # output_size = 15x15x48   RF=5
 
         self.convblock3 = nn.Sequential(
-            nn.Conv2d(48, 64, kernel_size=3, padding=1, dilation=2),
+            nn.Conv2d(48, 64, kernel_size=3, padding=2, dilation=2),
             nn.BatchNorm2d(64),
             nn.ReLU(),
             nn.Dropout(drop_out_value),
